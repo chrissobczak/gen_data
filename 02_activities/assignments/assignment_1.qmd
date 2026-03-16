@@ -19,19 +19,28 @@ Before fitting any models, it is essential to understand the data. Use R or bash
 
 (i) Read the .fam file. How many samples does the dataset contain?
 
-```         
-# Your answer here...
+```{bash}
+wc -l ../data/gwa.qc.fam
 ```
+
+```{r}
+read.delim(
+	file='../data/gwq.qc.fam',
+	header=0
+) -> fam
+nrow(fam)
+```
+The .fam file has 4,000 samples.
 
 (ii) What is the 'variable type' of the response variable (i.e.Continuous or binary)?
 
-```         
+```
 # Your answer here...
 ```
 
 (iii) Read the .bim file. How many SNPs does the dataset contain?
 
-```         
+```
 # Your answer here...
 ```
 
@@ -39,13 +48,13 @@ Before fitting any models, it is essential to understand the data. Use R or bash
 
 (i) Load the genotype matrix for SNPs rs1861, rs3813199, rs3128342, and rs11804831 using additive coding. What are the allele frequencies (AFs) for these four SNPs?
 
-```         
+```
 # Your code here...
 ```
 
 (ii) What are the minor allele frequencies (MAFs) for these four SNPs?
 
-```         
+```
 # Your code here...
 ```
 
@@ -53,13 +62,13 @@ Before fitting any models, it is essential to understand the data. Use R or bash
 
 (i) Conduct the Hardy–Weinberg Equilibrium (HWE) test for all SNPs in the .bim file. Then, load the file containing the HWE p-value results and display the first few rows of the resulting data frame.
 
-```         
+```
 # Your code here...
 ```
 
 (ii) What are the HWE p-values for SNPs rs1861, rs3813199, rs3128342, and rs11804831?
 
-```         
+```
 # Your code here...
 ```
 
@@ -67,43 +76,43 @@ Before fitting any models, it is essential to understand the data. Use R or bash
 
 (i) Conduct a linear regression to test the association between SNP rs1861 and the phenotype. What is the p-value?
 
-```         
+```
 # Your code here...
 ```
 
 (ii) How would you interpret the beta coefficient from this regression?
 
-```         
+```
 # Your answer here...
 ```
 
 (iii) Plot the scatterplot of phenotype versus the genotype of SNP rs1861. Add the regression line to the plot.
 
-```         
+```
 # Your code here...
 ```
 
 (iv) Convert the genotype coding for rs1861 to recessive coding.
 
-```         
+```
 # Your code here...
 ```
 
 (v) Conduct a linear regression to test the association between the recessive-coded rs1861 and the phenotype. What is the p-value?
 
-```         
+```
 # Your code here...
 ```
 
 (vi) Plot the scatterplot of phenotype versus the recessive-coded genotype of rs1861. Add the regression line to the plot.
 
-```         
+```
 # Your code here...
 ```
 
 (vii) Which model fits better? Justify your answer.
 
-```         
+```
 # Your answer here...
 ```
 
