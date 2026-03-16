@@ -112,45 +112,100 @@ hwe[which(hwe$ID %in% snps),c('ID','P')]
 
 (i) Conduct a linear regression to test the association between SNP rs1861 and the phenotype. What is the p-value?
 
-```
-# Your code here...
+```{r}
+geno_subset <- data.table::fread('../data/gwa_qc_additive_A1.raw')
+geno_subset <- na.omit(geno_subset[,c(
+	'PHENOTYPE',
+	'rs1861_C'
+)])
+
+model <- glm(PHENOTYPE ~ rs1861_C,data=geno_subset)
+summary(model)
+# The p-value is <2.2e-16, so significant
 ```
 
 (ii) How would you interpret the beta coefficient from this regression?
 
-```
-# Your answer here...
+```{r}
+coefficients(model)
+# The coefficient for rs1861_C is 0.97382409 (p<2.2e-16)
+# For each additional copy of the C allele is associated with an
+# increase of 0.9738 units of the phenotype starting at
+# the estimate intercept of 0.0524 (where no allele C is present)
 ```
 
 (iii) Plot the scatterplot of phenotype versus the genotype of SNP rs1861. Add the regression line to the plot.
 
-```
-# Your code here...
+```{r}
+library(ggplot2)
+data.frame(
+	yhat=as.numeric(predict(model,geno_subset)),
+	rs1861_C=geno_subset$rs1861_C
+) -> yhat
+
+ggplot(
+	data=geno_subset,
+	aes(x=rs1861_C,y=PHENOTYPE)
+) +
+geom_point(alpha=.5) +
+geom_line(
+	data=yhat,
+	aes(x=rs1861_C,y=yhat),
+	color='red',
+	linewidth=2,
+	alpha=.5
+) +
+labs(
+	title='Regression under additive model of rs1861_C against a phenotype'
+) +
+theme_minimal()
 ```
 
 (iv) Convert the genotype coding for rs1861 to recessive coding.
 
-```
-# Your code here...
+```{r}
+geno_rec <- geno_subset
+geno_rec$rs1861_C <- ifelse(geno_rec$rs1861_C==2,1,0)
 ```
 
 (v) Conduct a linear regression to test the association between the recessive-coded rs1861 and the phenotype. What is the p-value?
 
-```
-# Your code here...
+```{r}
+model <- glm(PHENOTYPE ~ rs1861_C,data=geno_rec)
+summary(model)
+# The p-value is also <2.e-16, the intercept comes up to significant
+# The AIC slightly increases
 ```
 
 (vi) Plot the scatterplot of phenotype versus the recessive-coded genotype of rs1861. Add the regression line to the plot.
 
-```
-# Your code here...
+```{r}
+data.frame(
+	yhat=as.numeric(predict(model,geno_rec)),
+	rs1861_C=geno_rec$rs1861_C
+) -> yhat
+
+ggplot(
+	data=geno_rec,
+	aes(x=rs1861_C,y=PHENOTYPE)
+) +
+geom_point(alpha=.5) +
+geom_line(
+	data=yhat,
+	aes(x=rs1861_C,y=yhat),
+	color='red',
+	linewidth=2,
+	alpha=.5
+) +
+labs(
+	title='Regression under recessive model of rs1861_C against a phenotype'
+) +
+theme_minimal()
 ```
 
 (vii) Which model fits better? Justify your answer.
 
-```
-# Your answer here...
-```
+The recessive model fits better since AIC is higher (11292 v 11277)
 
 ### Criteria
 
