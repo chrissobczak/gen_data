@@ -12,20 +12,36 @@ Before you run any models, first get familiar with the dataset. You may find `da
 (i) Read the `.fam` file. How many samples does the dataset contain?
 
 ```{r}
-# Your code here...
+fam <- data.table::fread('../data/gwa.A2.fam')
+nrow(fam)
 ```
+The dataset contains `r nrow(fam)` samples.
 
 (ii) Read the `.bim` file. How many SNPs does the dataset contain?
 
 ```{r}
-# Your code here...
+bim <- data.table::fread('../data/gwa.A2.bim')
 ```
+The .bim file dataset contains `r nrow(bim)` SNPs.
 
 (iii) Make a histogram (or density plot) of the phenotype. Does it look roughly Gaussian?
 
 ```{r}
-# Your code here...
+library(ggplot2)
+ggplot(data=fam,aes(x=V6)) +
+geom_histogram(aes(y=after_stat(density)),fill='#8A9A5B') +
+geom_density() +
+theme_minimal() +
+labs(
+	title='Histogram of Phenotype',
+	x='Phenotype',
+	y='Density'
+)
 ```
+
+The phenotype does look roughly Gaussian, it's symmetric and even
+looks centered around zero with tails that look standard
+(rare observations above and below 3 and -3).
 
 #### Question 2: Quality control (QC)
 
