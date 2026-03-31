@@ -117,7 +117,7 @@ Assume that:
 
 | Criteria | Complete | Incomplete |
 |:--------------|:----------------------------------|:----------------------|
-| **Data inspection** | Correct sample and SNP counts; phenotype plot with a brief comment on Gaussianity. | Counts or phenotype description/plot missing or incorrect. |
+| **Data inspection** | Correct sample and SNP counts | Counts or phenotype description/plot missing or incorrect. |
 | **QC & LD pruning** | Correct PLINK2 QC command and thresholds. | QC/pruning commands, thresholds, or output datasets missing or incorrect. |
 | **Relatedness & PCA** | Correct use of PLINK2 command to obtain unrelated samples and PCA run on pruned SNPs. | Relatedness step, unrelated dataset, or PCA analysis missing or incorrect. |
 | **GWAS & visualisation** | Linear regression GWAS with PCs as covariates; Manhattan and QQ plots produced. | GWAS command, or Manhattan/QQ plots missing or clearly incorrect. |
@@ -137,7 +137,7 @@ Assume that:
 -   What to submit for this assignment:
     -   Populate this Quarto document (`assignment_2.qmd`).
     -   Render the document with Quarto: `quarto render assignment_2.qmd`.
-    -   Submit both `assignment_2.qmd` and the rendered HTML file `assignment_2.html` in your pull request.
+    -   Submit both `assignment_2.qmd`, the rendered HTML file `assignment_2.html` and saved figures in your pull request.
 
 -   What the pull request link should look like for this assignment: `https://github.com/<your_github_username>/gen_data/pull/<pr_id>`
 
