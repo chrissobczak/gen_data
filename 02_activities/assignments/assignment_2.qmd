@@ -163,7 +163,7 @@ plink2 \
 
 (ii) Create a Manhattan plot of the GWAS results.
 
-```{r}
+```{r,message=FALSE,results='hide'}
 assoc <- fread('../data/gwa_qc_A2_assoc.PHENO1.glm.linear')
 assoc_adjusted <- fread('../data/gwa_qc_A2_assoc.PHENO1.glm.linear.adjusted')
 assoc_add <- assoc[TEST=='ADD']
@@ -187,14 +187,17 @@ manhattan(
 )
 dev.off()
 ```
+![Manhattan Plot](manhattan_plot.png)
+
 
 (iii) Create a QQ plot of the GWAS p-values.
 
-```{r}
+```{r,message=FALSE,results='hide'}
 png('qqplot.png',width=1200,height=800,res=150)
 qq(assoc_add$P,main='Q-Q plot of GWAS p-values')
 dev.off()
 ```
+![QQ Plot](qqplot.png)
 
 ### Criteria
 

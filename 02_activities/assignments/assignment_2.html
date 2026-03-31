@@ -270,22 +270,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">col=</span><span class="fu">c</span>(<span class="st">'lightblue'</span>,<span class="st">'green'</span>)</span>
 <span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>png 
-  2 </code></pre>
 </div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="manhattan_plot.png" class="img-fluid figure-img"></p>
+<figcaption>Manhattan Plot</figcaption>
+</figure>
 </div>
 <ol start="3" type="i">
 <li>Create a QQ plot of the GWAS p-values.</li>
 </ol>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">png</span>(<span class="st">'qqplot.png'</span>,<span class="at">width=</span><span class="dv">1200</span>,<span class="at">height=</span><span class="dv">800</span>,<span class="at">res=</span><span class="dv">150</span>)</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">qq</span>(assoc_add<span class="sc">$</span>P,<span class="at">main=</span><span class="st">'Q-Q plot of GWAS p-values'</span>)</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>png 
-  2 </code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">png</span>(<span class="st">'qqplot.png'</span>,<span class="at">width=</span><span class="dv">1200</span>,<span class="at">height=</span><span class="dv">800</span>,<span class="at">res=</span><span class="dv">150</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">qq</span>(assoc_add<span class="sc">$</span>P,<span class="at">main=</span><span class="st">'Q-Q plot of GWAS p-values'</span>)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="qqplot.png" class="img-fluid figure-img"></p>
+<figcaption>QQ Plot</figcaption>
+</figure>
 </div>
 </section>
 <section id="criteria" class="level3">
